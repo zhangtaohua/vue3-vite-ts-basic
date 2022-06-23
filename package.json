@@ -5,15 +5,28 @@
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "prepare": "husky install",
+    "lint": "lint-staged"
   },
   "dependencies": {
     "vue": "^3.2.25"
   },
   "devDependencies": {
+    "@commitlint/cli": "^17.0.2",
+    "@commitlint/config-conventional": "^17.0.2",
     "@vitejs/plugin-vue": "^2.2.0",
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.2",
     "typescript": "^4.5.4",
     "vite": "^2.8.0",
     "vue-tsc": "^0.29.8"
+  },
+  "lint-staged": {
+    "src/**/*.{js.vue}": [
+      "prettier --write",
+      "esslint --cache --fix",
+      "git add"
+    ]
   }
 }
