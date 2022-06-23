@@ -1,4 +1,10 @@
-#!/usr/bin/env sh
-. "$(dirname -- "$0")/_/husky.sh"
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+. "$(dirname "$0")/common.sh"
 
-npm run lint
+[ -n "$CI" ] && exit 0
+
+# Format and submit code according to lintstagedrc.js configuration
+yarn lint:lint-staged
+
+yarn lint:pretty
