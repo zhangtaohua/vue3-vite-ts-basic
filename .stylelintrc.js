@@ -1,9 +1,24 @@
 module.exports = {
   root: true,
   plugins: ['stylelint-order', 'stylelint-scss'],
-  extends: ['stylelint-config-standard', 'stylelint-config-prettier'],
-  customSyntax: ['postcss-html'],
+  extends: [
+    'stylelint-config-standard',
+    'stylelint-config-rational-order',
+    'stylelint-config-recommended-vue',
+    'stylelint-config-prettier',
+  ],
+  overrides: [
+    {
+      files: ['**/*.less'],
+      customSyntax: 'postcss-less',
+    },
+    {
+      files: ['**/*.scss'],
+      customSyntax: 'postcss-scss',
+    },
+  ],
   rules: {
+    'selector-class-pattern': '^([a-z][a-z0-9]*)(-+[a-z0-9]+)*(_+[a-z0-9]+)*$',
     'selector-pseudo-class-no-unknown': [
       true,
       {
