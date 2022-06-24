@@ -24,6 +24,7 @@ module.exports = {
   arrowParens: 'always',
   // 每个文件格式化的范围是文件的全部内容
   // rangeStart: 0,
+  // null 值会报错！！！
   // rangeEnd: null,
   // 不需要写文件开头的 @prettier
   requirePragma: false,
